@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <script src="https://kit.fontawesome.com/c2ac71591d.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <style> 
+        html {
+            font-family: 'Rubik Moonrocks', sans-serif;
+        }
+        /* Font selector */
+
+        body{
+            margin: 0px;
+        }
+        /* takes away the margin that is embedded in HTML (top and left and right side overriden) */
+
+        .navbar {
+            background: green;
+        }
+        /* Changes the Navbar color to the above # */
+
+        .navbar div {
+            display: none;
+        }
+        /* any div inside nav bar, none because you want to manage if something is going to be shown in a media querie */
+
+        .navbar .toggle,
+        .navbar .brand {
+            display: inline-block;
+        }
+        /* inline block used for gives nice default sizes */
+
+        .navbar .link {
+            display: block;
+            text-align: center;
+            padding: 1em;
+            text-decoration: none;
+            background: green;
+            color: white;
+        }
+        /* all the stuff you need for the links */
+
+        .navbar .link:hover,
+        .navbar .link:active {
+            color: green;
+            background:white;
+        }
+        /* changes what you see when you hover over the links, in this case it shows the opposite of what you see initially */
+
+        .navbar .brand {
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+        /* fixes the way "My Name" looks, as a way to have it always showing and make it look good */
+
+        .navbar a {
+            text-decoration: none;
+        }
+        /* hides the underline on "My Name" */
+
+        .navbar .toggle {
+            padding: 1em;
+            color: white;
+        }
+        /* used for the "hamburger" when made smaller */
+
+        @media (min-width: 48em) { 
+            .navbar {
+                display: flex;
+            }
+
+            .navbar div {
+                display: flex;
+            }
+
+            .navbar .left,
+            .navbar .right{
+                display: flex;
+                flex: 1;
+            }
+
+            .navbar .link {
+                width: auto;
+            }
+
+            .navbar .right {
+                justify-content: flex-end;
+            }
+
+            .navbar .toggle {
+                display: none;
+            }
+        }
+
+        @media (min-width: 48em) {
+            .navbar div {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 48em) {
+            .navbar.active .toggle {
+                background: green;
+                color: white;
+            }
+            .navbar .brand {
+                text-align: left;
+            }
+            .navbar.active div {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#" class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand">MyName</a>
+        <div class="left">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+        </div>
+        <div class="right">
+            <a href="#" class="link">Link 3</a>
+        </div>
+    </div>    
+</body>
+
+<script>
+    const navHamburger = document.querySelector('#navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+</script>
+
+<!-- script = Javascript to make the hamburger work when in a smaller window then a Desktop aka mobile,tablet, etc. -->
+
+</html>
